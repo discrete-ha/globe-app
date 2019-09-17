@@ -11,7 +11,7 @@ description: Realtime topics based on the location
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -41,6 +41,8 @@ flutter_icons:
   ios: true
   android: true
   image_path: "assets/logo.png"
+#  image_path: "assets/globe-blue.png"
+  image_path_ios: "assets/logowtbg.jpg"
   adaptive_icon_background: "assets/background.jpg"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

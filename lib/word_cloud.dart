@@ -20,14 +20,15 @@ class WordColud extends StatelessWidget {
     var diffR = colorBottom[0] - colorTop[0];
     var diffG = colorBottom[1] - colorTop[1];
     var diffB = colorBottom[2] - colorTop[2];
-    var tolerance = 1;
-    var maximumRawFontSize = words[0].size * tolerance;
+//    var maximumRawFontSize = words[0].size;
 
     for (var i = 0; i < length; i++) {
-      var wordSize = words[i].size * tolerance;
-      var fontSize = ( (wordSize * 3).toInt() + 36 )  ;
+      var wordSize = words[i].size;
+      var fontSize =  ( wordSize + ( 70 - i ) ).toInt();
+//      maximumRawFontSize += ( 70 - i );
 
-      var ratio = wordSize / maximumRawFontSize;
+//      var ratio = fontSize / maximumRawFontSize;
+      var ratio = (length - i ) / length;
       var color = Color.fromRGBO(
           (colorBottom[0] - ( diffR * ratio ) ).toInt() ,
           (colorBottom[1] - ( diffG * ratio ) ).toInt(),

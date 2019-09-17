@@ -10,10 +10,11 @@ class IssueList extends StatelessWidget {
 
   List<Issue> generateIssueWords(rawIssues){
     List<Issue> resIssueWords = [];
+    print(rawIssues);
     rawIssues["topics"].forEach((issue){
       int defalutPoint = issue["point"].toInt();
+      rawIssues["totalPoint"] = rawIssues["totalPoint"] == 0 ? 1 :rawIssues["totalPoint"];
       int point = ( defalutPoint / rawIssues["totalPoint"] * 100 ).toInt();
-
       resIssueWords.add( Issue(issue["word"], point , false) );
     });
     return resIssueWords;
