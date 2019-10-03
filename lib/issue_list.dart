@@ -10,7 +10,6 @@ class IssueList extends StatelessWidget {
 
   List<Issue> generateIssueWords(rawIssues){
     List<Issue> resIssueWords = [];
-    print(rawIssues);
     rawIssues["topics"].forEach((issue){
       int defalutPoint = issue["point"].toInt();
       rawIssues["totalPoint"] = rawIssues["totalPoint"] == 0 ? 1 :rawIssues["totalPoint"];
@@ -25,6 +24,7 @@ class IssueList extends StatelessWidget {
     print("IssueList build()");
     List<Issue> issueWords = generateIssueWords(this.issue);
     var location = this.issue['location'];
+    var countryCode = this.issue['countryCode'];
 
     return new Listener(
         onPointerDown: (e) {
@@ -50,7 +50,7 @@ class IssueList extends StatelessWidget {
                         ),
                         Center(
                           child:FittedBox(
-                              child: WordColud(issueWords)
+                              child: WordColud(issueWords, countryCode)
                           ),
                         )],
                     ),

@@ -8,10 +8,12 @@ import 'issue.dart';
 class WordColud extends StatelessWidget {
   final List<Issue> words;
   List<Widget> widgets = <Widget>[];
-  WordColud(this.words);
+  String countryCode;
+  WordColud(this.words, this.countryCode);
 
   @override
   Widget build(BuildContext context) {
+    print("countryCode ${countryCode}");
     var length =  words.length > 30 ? 30 : words.length;
 
     var colorBottom = [80, 180, 255];
@@ -20,21 +22,17 @@ class WordColud extends StatelessWidget {
     var diffR = colorBottom[0] - colorTop[0];
     var diffG = colorBottom[1] - colorTop[1];
     var diffB = colorBottom[2] - colorTop[2];
-//    var maximumRawFontSize = words[0].size;
 
     for (var i = 0; i < length; i++) {
       var wordSize = words[i].size;
       var fontSize =  ( wordSize + ( 70 - i ) ).toInt();
-//      maximumRawFontSize += ( 70 - i );
-
-//      var ratio = fontSize / maximumRawFontSize;
       var ratio = (length - i ) / length;
       var color = Color.fromRGBO(
           (colorBottom[0] - ( diffR * ratio ) ).toInt() ,
           (colorBottom[1] - ( diffG * ratio ) ).toInt(),
           (colorBottom[2] - ( diffB * ratio ) ).toInt(), 1 );
 
-      widgets.add( CloudItem(words[i].word, color, fontSize.toDouble() ));
+      widgets.add( CloudItem(words[i].word, color, fontSize.toDouble(), this.countryCode ));
     }
 
     return Scatter(
@@ -46,11 +44,10 @@ class WordColud extends StatelessWidget {
 }
 
 class CloudItem extends StatelessWidget {
-  CloudItem(this.word, this.color, this.fontSize);
-  String word;
+  CloudItem(this.word, this.color, this.fontSize, this.countryCode);
+  String word, countryCode;
   final Color color;
   final double fontSize;
-
 
   @override
   Widget build(BuildContext context) {
@@ -73,16 +70,18 @@ class CloudItem extends StatelessWidget {
             textAlign: TextAlign.center
         ),
         onPressed: (){
-          openBrowser(word);
+          openBrowser(word, countryCode);
         }
       );
   }
 }
 
-openBrowser(String message) async {
+openBrowser(String message, String countryCode) async {
 
   var searchUrl = Uri.encodeFull("https://www.google.co.jp/search?q=${message}&tbs=qdr:d");
-
+  if(countryCode == "KR"){
+    searchUrl = Uri.encodeFull("https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${message}");
+  }
 
   try {
     if (await canLaunch(searchUrl)) {

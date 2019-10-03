@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:globe_app/issue_list.dart';
 import 'package:http/http.dart' as http;
@@ -34,6 +35,16 @@ class _MainViewState extends State<MainView>  with WidgetsBindingObserver {
       jsonStringConfig = await _loadConfig();
       this.prefs = await SharedPreferences.getInstance();
       _fetchIssue(http.Client());
+      FirebaseAdMob.instance.initialize(appId: Setting.admobAppId);
+
+      bottomBanner
+        ..load()
+        ..show(
+          anchorOffset: 0.0,
+          anchorType: AnchorType.bottom,
+        );
+
+//      bottomBanner.load();
     })();
   }
 
@@ -89,7 +100,6 @@ class _MainViewState extends State<MainView>  with WidgetsBindingObserver {
         prefs.setString(LOCAL_WOEID_TIME, now.toString());
       }
     }
-
   }
 
   void reloadData(){
@@ -104,7 +114,7 @@ class _MainViewState extends State<MainView>  with WidgetsBindingObserver {
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
+  Future didChangeAppLifecycleState(AppLifecycleState state) async {
     switch(state){
       case AppLifecycleState.resumed:
         reloadData();
@@ -171,4 +181,20 @@ class _MainViewState extends State<MainView>  with WidgetsBindingObserver {
   }
 }
 
+MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+  keywords: <String>['flutterio', 'beautiful apps'],
+  contentUrl: 'https://flutter.io',
+  childDirected: false,
+  designedForFamilies: false,
+  testDevices: <String>[], // Android emulators are considered test devices
+);
+
+BannerAd bottomBanner = BannerAd(
+  adUnitId: Setting.admobUnitId,
+  size: AdSize.smartBanner,
+  targetingInfo: targetingInfo,
+  listener: (MobileAdEvent event) {
+    print("BannerAd event is $event");
+  },
+);
 

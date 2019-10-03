@@ -30,6 +30,13 @@
             {
               "client_id": "1096487669057-98vmk49gv428q0e29lrsi4j1rcspfe93.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1096487669057-r3qo3sj9ogi2iuooipb3sj8j83vrs4e0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.airflare.globeApp"
+              }
             }
           ]
         }
