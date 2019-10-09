@@ -1,12 +1,13 @@
-  import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:globe_app/issue.dart';
 import 'package:globe_app/location_bg.dart';
 import 'package:globe_app/word_cloud.dart';
 
 class IssueList extends StatelessWidget {
   final Map<String, dynamic> issue;
+  final double ratio;
 
-  IssueList({Key key, this.issue}) : super(key: key);
+  IssueList({Key key, this.issue, this.ratio}) : super(key: key);
 
   List<Issue> generateIssueWords(rawIssues){
     List<Issue> resIssueWords = [];
@@ -34,10 +35,9 @@ class IssueList extends StatelessWidget {
           print("up");
         },
         child:new Scaffold(
+          backgroundColor: Colors.white,
           body: Padding(
-              padding: EdgeInsets.only(bottom: 50.0),
-              child:Padding(
-                  padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20.0),
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20.0),
                   child: Center(
                     child:
                     new Stack(
@@ -50,14 +50,13 @@ class IssueList extends StatelessWidget {
                         ),
                         Center(
                           child:FittedBox(
-                              child: WordColud(issueWords, countryCode)
+                              child: WordColud(issueWords, countryCode, this.ratio)
                           ),
                         )],
                     ),
                   )
               )
           ),
-        )
     );
   }
 }

@@ -9,7 +9,9 @@ class WordColud extends StatelessWidget {
   final List<Issue> words;
   List<Widget> widgets = <Widget>[];
   String countryCode;
-  WordColud(this.words, this.countryCode);
+  final double ratio;
+
+  WordColud(this.words, this.countryCode, this.ratio);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,7 @@ class WordColud extends StatelessWidget {
 
     return Scatter(
         fillGaps: false,
-        delegate: ArchimedeanSpiralScatterDelegate(ratio: -2, step: 0.02, rotation: 1),
+        delegate: ArchimedeanSpiralScatterDelegate(ratio: -(ratio), step: 0.02, rotation: 1),
       children:widgets
     );
   }

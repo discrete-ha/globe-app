@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1096487669057-ckommsffrkvfr4fc9ljfu5q0gr5ankg9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.airflare.globe_app",
+            "certificate_hash": "a43c268ed122a0ba6015d1de88de1b3697834eb4"
+          }
+        },
+        {
           "client_id": "1096487669057-98vmk49gv428q0e29lrsi4j1rcspfe93.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -40,7 +48,8 @@
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-3304304215047232~8077017567"
     }
   ],
   "configuration_version": "1"

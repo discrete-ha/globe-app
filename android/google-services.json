@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1096487669057",
+    "firebase_url": "https://globe-app-6acd6.firebaseio.com",
+    "project_id": "globe-app-6acd6",
+    "storage_bucket": "globe-app-6acd6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096487669057:android:a36241a6eb447622",
+        "android_client_info": {
+          "package_name": "com.airflare.globe_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096487669057-ckommsffrkvfr4fc9ljfu5q0gr5ankg9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.airflare.globe_app",
+            "certificate_hash": "a43c268ed122a0ba6015d1de88de1b3697834eb4"
+          }
+        },
+        {
+          "client_id": "1096487669057-98vmk49gv428q0e29lrsi4j1rcspfe93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATFjFDkbONjwvfgCdyhpLV8ENk-8SnUKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096487669057-98vmk49gv428q0e29lrsi4j1rcspfe93.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1096487669057-r3qo3sj9ogi2iuooipb3sj8j83vrs4e0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.airflare.globeApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
